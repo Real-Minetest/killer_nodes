@@ -1,0 +1,1 @@
+Adds damage per second to falling nodes and increases fire and lava damage.
