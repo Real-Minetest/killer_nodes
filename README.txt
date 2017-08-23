@@ -13,7 +13,7 @@
    Supported modules: fallen_nodes, fallen_trees, mg, darkage
 
    Report bugs or request help on the forum topic.
-
+   https://forum.minetest.net/viewtopic.php?f=9&t=18339
 
 
    Installation
