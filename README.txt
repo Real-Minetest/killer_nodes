@@ -2,10 +2,10 @@
    KILLER NODES MODULE
    ===================
 
-   Adds damage per second to the falling nodes and increases fire and lava damage.
+   Adds damage to falling nodes and torches, increases fire and lava damage.
 
 
-   Version: 0.1.1
+   Version: 0.3.1
    Source code's license: GPLv3
 
 
