@@ -73,8 +73,9 @@ if minetest.get_modpath("fallen_nodes") then
    minetest.override_item("default:desert_cobble", medium)
 
 
+--[[
    --
-   -- Stairs and slabs
+   -- Stairs and slabs | Disabled due to damage on walking over
    --
 
    minetest.override_item("stairs:stair_cobble", medium)
@@ -100,6 +101,7 @@ if minetest.get_modpath("fallen_nodes") then
    minetest.override_item("stairs:stair_outer_desert_cobble", medium)
 
    minetest.override_item("stairs:slab_desert_cobble", medium)
+]]--
 
    --
    -- Soft / Non-Stone
@@ -116,6 +118,13 @@ if minetest.get_modpath("fallen_nodes") then
    minetest.override_item("default:dirt_with_snow", slow)
 
    minetest.override_item("default:dirt_with_rainforest_litter", slow)
+
+
+   --
+   -- Plantlife (non-cubic)
+   --
+
+   minetest.override_item("default:cactus", fast)
 
 end
 

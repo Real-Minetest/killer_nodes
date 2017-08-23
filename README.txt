@@ -5,12 +5,12 @@
    Adds damage per second to the falling nodes and increases fire and lava damage.
 
 
-   Version: 0.1.0
+   Version: 0.1.1
    Source code's license: GPLv3
 
 
-   Dependencies: default, stairs, fire (found in minetest_game)
-   Supported modules: fallen_nodes, fallen_trees, mg, darkage
+   Dependencies: default, fire (found in minetest_game)
+   Supported modules: stairs, fallen_nodes, fallen_trees, mg, darkage
 
    Report bugs or request help on the forum topic.
    https://forum.minetest.net/viewtopic.php?f=9&t=18339

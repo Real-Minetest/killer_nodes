@@ -1,6 +1,6 @@
 default
-stairs
 fire
+stairs?
 fallen_nodes?
 fallen_trees?
 mg?
