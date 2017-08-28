@@ -61,6 +61,10 @@ minetest.override_item("fire:permanent_flame", fast)
 
 minetest.override_item("default:torch", medium)
 
+minetest.override_item("default:torch_ceiling", medium)
+
+minetest.override_item("default:torch_wall", medium)
+
 
 --
 -- Support for [Mod] Fallen Nodes [fallen_nodes]
