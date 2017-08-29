@@ -5,7 +5,7 @@
    Adds damage to falling nodes and torches, increases fire and lava damage.
 
 
-   Version: 0.4.0
+   Version: 0.4.1
    Source code's license: GPLv3
 
 

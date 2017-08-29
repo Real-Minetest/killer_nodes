@@ -26,17 +26,17 @@
 -- Damage per second, character's max health points = 20
 --
 
--- Death in one minute
-local slow = {damage_per_second = 0.333333}
+-- Death in 20 seconds
+local slow = {damage_per_second = 1} -- 1/2HP
 
--- Death in six seconds
-local medium = {damage_per_second = 3.333333}
+-- Death in 10 seconds
+local medium = {damage_per_second = 2} -- 1HP
 
--- Deat in three seconds
-local fast = {damage_per_second = 6.666666}
+-- Death in 5 seconds
+local fast = {damage_per_second = 4} -- 4HP
 
 -- Instant death
-local immediate = {damage_per_second = 20}
+local immediate = {damage_per_second = 20} -- 20HP
 
 
 --
@@ -153,6 +153,7 @@ if minetest.get_modpath("fallen_trees") then
 
 end
 
+
 --
 -- Support for [Mod] Experimental mapgen [mg]
 --
@@ -184,7 +185,7 @@ if minetest.get_modpath("darkage") then
 
    minetest.override_item("darkage:ors_rubble", medium)
 
-   minetest.override_item("darkage:silt", fast)
+   minetest.override_item("darkage:silt", slow)
 
    minetest.override_item("darkage:slate_rubble", medium)
 
