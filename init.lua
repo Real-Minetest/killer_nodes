@@ -192,6 +192,17 @@ if minetest.get_modpath("darkage") then
 end
 
 
+--
+-- Support for [Mod] Castle Masonry [castle_masonry]
+--
+
+if minetest.get_modpath("castle_masonry") then
+
+   minetest.override_item("castle_masonry:rubble", medium)
+
+end
+
+
 if minetest.settings:get("log_mods") then
    minetest.log("action", "[Mod] Killer Nodes loaded")
 end

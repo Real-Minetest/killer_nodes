@@ -1,7 +1,8 @@
 default
 fire
-stairs?
+castle_masonry?
+darkage?
 fallen_nodes?
 fallen_trees?
 mg?
-darkage?
+stairs?
