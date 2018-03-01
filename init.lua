@@ -1,8 +1,6 @@
 --[[
 
-   Killer Nodes init.lua
-
-   Copyright 2017 Hamlet <h4mlet@riseup.net>
+   GPLv3 Copyright (C) 2017-2018 Hamlet <h4mlet@riseup.net>
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -59,11 +57,89 @@ minetest.override_item("fire:basic_flame", fast)
 
 minetest.override_item("fire:permanent_flame", fast)
 
-minetest.override_item("default:torch", medium)
+--minetest.override_item("default:torch_ceiling", medium)
 
-minetest.override_item("default:torch_ceiling", medium)
+--minetest.override_item("default:torch_wall", medium)
 
-minetest.override_item("default:torch_wall", medium)
+
+--
+-- Torches and cacti's ABMs
+--
+
+-- copy-pasted from Real Test by Badger
+
+minetest.register_abm({
+   nodenames = {"default:torch"},
+   interval = 1.0,
+   chance = 1,
+   action = function(pos, node, active_object_count, active_object_count_wider)
+      players = minetest.get_objects_inside_radius(pos, 0.7)
+         for i, player in ipairs(players) do
+            player:set_hp(player:get_hp() - 1)
+         end
+   end,
+})
+
+--[[
+minetest.register_abm({
+   nodenames = {"default:torch_ceiling", "default:torch_wall"},
+   interval = 1.0,
+   chance = 1,
+   action = function(pos, node, active_object_count, active_object_count_wider)
+      local pos = self.object:getpos()
+      local position = {x = pos.x, y = pos.y - 1.0, pos.z}
+      players = minetest.get_objects_inside_radius(position, 0.7)
+         for i, player in ipairs(players) do
+            player:set_hp(player:get_hp() - 1)
+         end
+   end,
+})
+--]]
+
+minetest.register_abm({
+   nodenames = {"default:cactus"},
+   interval = 0.5,
+   chance = 1,
+   action = function(pos, node, active_object_count, active_object_count_wider)
+      players = minetest.get_objects_inside_radius(pos, 1)
+         for i, player in ipairs(players) do
+            player:set_hp(player:get_hp() - 1)
+         end
+   end,
+})
+
+
+--
+-- Support for Desert Life's barrel cacti
+--
+
+if minetest.get_modpath("desert_life") then
+
+   minetest.register_abm({
+      nodenames = {"desert_life:barrel_cacti_1",
+                   "desert_life:barrel_cacti_2",
+                   "desert_life:barrel_cacti_3",
+                   "desert_life:barrel_cacti_1_sp",
+                   "desert_life:barrel_cacti_2_sp",
+                   "desert_life:barrel_cacti_3_sp"},
+      interval = 0.5,
+      chance = 1,
+      action = function(pos, node, active_object_count, active_object_count_wider)
+         local objects = minetest.get_objects_inside_radius(pos, 1)
+
+         for _, obj in pairs(objects) do
+         
+            if obj:is_player() then
+               obj:set_hp(obj:get_hp() - 1)
+            else 
+               if not obj:get_armor_groups().immortal then
+                  obj:set_hp(obj:get_hp() - 1)
+               end
+            end
+         end
+      end,
+   })
+end
 
 
 --
@@ -203,6 +279,4 @@ if minetest.get_modpath("castle_masonry") then
 end
 
 
-if minetest.settings:get("log_mods") then
-   minetest.log("action", "[Mod] Killer Nodes loaded")
-end
+minetest.log("action", "[Mod] Killer Nodes loaded")

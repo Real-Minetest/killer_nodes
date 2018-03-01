@@ -2,6 +2,7 @@ default
 fire
 castle_masonry?
 darkage?
+desert_life?
 fallen_nodes?
 fallen_trees?
 mg?
